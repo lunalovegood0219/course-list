@@ -1,4 +1,6 @@
+import React from "react";
 import CourseCard from "./CourseCard";
+import Header from "./Header";
 
 const courses = [
   {
@@ -35,13 +37,17 @@ const courses = [
   },
 ];
 
-function CourseList() {
+export default function CoursesList() {
   return (
-    <div className="course-list">
-      {courses.length > 0 &&
-        courses.map((course) => <CourseCard key={course.id} course={course} />)}
+    <div>
+      <Header />
+      <div className="course-list">
+        {courses.map((course)=>{
+          return (
+            <CourseCard course={course}/>
+          );
+        })}
+      </div>
     </div>
   );
 }
-
-export default CourseList;
